@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     master.vm.provision "shell", inline: "systemctl enable nfs-server"
     master.vm.provision "shell", inline: "systemctl start nfs-server"
     master.vm.provision "shell", inline: "mkdir -p /mnt/nfs/{data,content}"
-    master.vm.provision "shell", inline: "mkdir -p /mnt/nfs/data/{0,1,2}"
+    master.vm.provision "shell", inline: "mkdir -p /mnt/nfs/data/{mysql0,mysql1,mysql2,etcd0,etcd1,etcd2}"
     master.vm.provision "shell", inline: "chmod -R 777 /mnt/nfs"
     master.vm.provision "shell", inline: "echo '/mnt/nfs  10.10.10.0/24(rw,sync,no_subtree_check)' | tee -a /etc/exports"
     master.vm.provision "shell", inline: "exportfs -a"
